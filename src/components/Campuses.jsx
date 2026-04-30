@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Campuses.css";
 
 function Campuses() {
   const [campuses, setCampuses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/campuses")
-      .then((res) => res.json())
-      .then((data) => setCampuses(data))
-      .catch((err) => console.error(err));
+    fetch("https://maluti.onrender.com/api/campuses")
+      .then(res => res.json())
+      .then(data => setCampuses(data))
+      .catch(err => console.error(err));
   }, []);
 
   return (
@@ -18,7 +18,6 @@ function Campuses() {
       <div className="campuses-container">
         {campuses.map((campus) => (
           <div className="campus-card" key={campus.id}>
-            
             <div className="campus-image-wrapper">
               <img
                 src={campus.image}
@@ -30,7 +29,6 @@ function Campuses() {
             <div className="campus-name">
               <h3>{campus.name}</h3>
             </div>
-
           </div>
         ))}
       </div>
