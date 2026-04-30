@@ -6,7 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// routes
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 app.use("/api/campuses", require("./routes/campuses"));
 
 app.listen(5000, () => {
