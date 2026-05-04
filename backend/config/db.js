@@ -4,13 +4,12 @@ require("dotenv").config();
 let pool;
 
 if (process.env.DATABASE_URL) {
-
+  console.log("Using DATABASE_URL"); // 👈 add this
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    ssl: { rejectUnauthorized: false },
   });
+
 } else {
 
   pool = new Pool({
